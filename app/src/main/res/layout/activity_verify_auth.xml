@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="viewModel"
+            type="com.challenge.aspire.screen.verifyAuth.VerifyAuthActivity"
+            />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.challenge.aspire.screen.verifyAuth.VerifyAuthActivity"
+        >
+        <include
+            layout="@layout/base_layout_toolbar"
+            bind:onButtonLeftClick="@{()-> viewModel.onBack()}"
+            bind:title="@{@string/title_verify_info}"
+            />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_20"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="@dimen/dp_4"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="@dimen/dp_1"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.onAttachIdentityClick()}"
+                        android:padding="@dimen/dp_16"
+                        android:text="@string/label_attach_identity"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_14"
+                        app:fontFamily="@font/noto_sans_bold"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_20"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:visibility="@{!TextUtils.isEmpty(viewModel.fileNameIdentity)}"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imvIdentity"
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="@dimen/dp_120"
+                        android:contentDescription="@string/label_img_dsc"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_6"
+                        android:contentDescription="@string/label_img_dsc"
+                        android:text="@{viewModel.fileNameIdentity}"
+                        android:textColor="@color/black_212121"
+                        android:textSize="@dimen/sp_16"
+                        style="@style/AppTheme.TextViewBold"
+                        />
+
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_20"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="@dimen/dp_4"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="@dimen/dp_1"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.onAttachSelfiesClick()}"
+                        android:padding="@dimen/dp_16"
+                        android:text="@string/label_selfies"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_14"
+                        app:fontFamily="@font/noto_sans_bold"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvImageList"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_128"
+                    android:layout_marginTop="@dimen/dp_10"
+                    />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="@dimen/dp_4"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="@dimen/dp_1"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.onSubmitInfoClick()}"
+                        android:paddingBottom="@dimen/dp_16"
+                        android:paddingTop="@dimen/dp_16"
+                        android:text="@string/label_submit_identity"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_14"
+                        app:fontFamily="@font/noto_sans_bold"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

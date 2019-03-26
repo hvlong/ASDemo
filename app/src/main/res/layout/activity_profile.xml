@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="viewModel"
+            type="com.challenge.aspire.screen.profile.ProfileActivity"
+            />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <include layout="@layout/base_layout_toolbar"
+            bind:onButtonLeftClick="@{()-> viewModel.onBack()}"
+            bind:title="@{@string/title_profile}"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            >
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingEnd="@dimen/dp_20"
+                    android:paddingStart="@dimen/dp_20"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:text="@string/label_name"
+                        android:textColor="@color/black_212121"
+                        android:textSize="@dimen/sp_16"
+                        style="@style/AppTheme.TextViewBold"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/bg_gray_radius"
+                        android:maxLength="255"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:paddingStart="@dimen/dp_10"
+                        android:paddingTop="@dimen/dp_12"
+                        android:singleLine="true"
+                        android:text="@{viewModel.user.name}"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_15"
+                        app:font="@font/noto_sans_regular"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:text="@string/label_email"
+                        android:textColor="@color/black_212121"
+                        android:textSize="@dimen/sp_16"
+                        style="@style/AppTheme.TextViewBold"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/bg_gray_radius"
+                        android:maxLength="255"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:paddingStart="@dimen/dp_10"
+                        android:paddingTop="@dimen/dp_12"
+                        android:singleLine="true"
+                        android:text="@{viewModel.user.email}"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_15"
+                        app:font="@font/noto_sans_regular"
+                        />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:text="@string/label_address"
+                        android:textColor="@color/black_212121"
+                        android:textSize="@dimen/sp_16"
+                        style="@style/AppTheme.TextViewBold"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/bg_gray_radius"
+                        android:maxLength="255"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_10"
+                        android:paddingStart="@dimen/dp_10"
+                        android:paddingTop="@dimen/dp_12"
+                        android:singleLine="true"
+                        android:text="@{viewModel.user.address}"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_15"
+                        app:font="@font/noto_sans_regular"
+                        />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_20"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="@dimen/dp_4"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="@dimen/dp_1"
+                        >
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:onClick="@{() -> viewModel.onAttachBankStatementClick()}"
+                            android:paddingBottom="@dimen/dp_16"
+                            android:paddingTop="@dimen/dp_16"
+                            android:text="@string/label_attach_bank_statement"
+                            android:textColor="@color/black_222222"
+                            android:textSize="@dimen/sp_14"
+                            app:fontFamily="@font/noto_sans_bold"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_20"
+                        app:visibility="@{!TextUtils.isEmpty(viewModel.fileName)}"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/ic_pdf"
+                            android:contentDescription="@string/label_img_dsc"
+                            android:layout_height="wrap_content"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:contentDescription="@string/label_img_dsc"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.fileName}"
+                            android:layout_marginTop="@dimen/dp_6"
+                            android:textColor="@color/black_212121"
+                            android:textSize="@dimen/sp_16"
+                            style="@style/AppTheme.TextViewBold"
+                            />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="@color/colorPrimary"
+                            app:cardCornerRadius="@dimen/dp_4"
+                            android:layout_marginTop="@dimen/dp_20"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="@dimen/dp_1"
+                            >
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="?attr/selectableItemBackground"
+                                android:gravity="center"
+                                android:onClick="@{() -> viewModel.onSubmitBankStatementClick()}"
+                                android:paddingBottom="@dimen/dp_16"
+                                android:paddingTop="@dimen/dp_16"
+                                android:text="@string/label_submit_bank_statement"
+                                android:textColor="@color/black_222222"
+                                android:textSize="@dimen/sp_14"
+                                app:fontFamily="@font/noto_sans_bold"
+                                />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

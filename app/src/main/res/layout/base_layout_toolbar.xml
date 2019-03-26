@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="title"
+            type="String"
+            />
+
+        <variable
+            name="titleColor"
+            type="int"
+            />
+
+        <variable
+            name="onButtonLeftClick"
+            type="android.view.View.OnClickListener"
+            />
+
+        <variable
+            name="iconLeft"
+            type="android.graphics.drawable.Drawable"
+            />
+
+        <variable
+            name="onButtonRightClick"
+            type="android.view.View.OnClickListener"
+            />
+
+        <variable
+            name="iconRight"
+            type="android.graphics.drawable.Drawable"
+            />
+
+        <variable
+            name="isHideButtonLeft"
+            type="boolean"
+            />
+        <variable
+            name="backgroundColor"
+            type="int"
+            />
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        app:layout_collapseMode="pin"
+        android:background="@{backgroundColor == 0 ? @color/white : backgroundColor}"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLeft"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{onButtonLeftClick}"
+            android:padding="@dimen/dp_18"
+            app:srcCompat="@drawable/ic_back"
+            app:visibility="@{isHideButtonLeft}"
+            tools:ignore="ContentDescription"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/dp_45"
+            android:layout_marginStart="@dimen/dp_45"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{title}"
+            android:textColor="@{titleColor == 0 ? @color/black_222222 : titleColor}"
+            android:textSize="@dimen/sp_16"
+            app:fontFamily="@font/noto_sans_bold"
+            tools:ignore="HardcodedText"
+            tools:text="Title toolbar"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_888888"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRight"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:layout_alignParentEnd="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{onButtonRightClick}"
+            android:padding="@dimen/dp_18"
+            android:src="@{iconRight}"
+            app:visibility="@{iconRight != null}"
+            tools:ignore="ContentDescription"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_888888"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+</layout>

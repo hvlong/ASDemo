@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.challenge.aspire.screen.register.RegisterActivity"
+            />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dp_16"
+                android:paddingStart="@dimen/dp_16"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dp_24"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:gravity="center"
+                    android:text="@string/title_register"
+                    android:textColor="@color/black_222222"
+                    android:textSize="@dimen/sp_32"
+                    app:fontFamily="@font/noto_sans_bold"
+                    />
+
+                <!-- Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_32"
+                    app:errorTextInput="@{viewModel.nameError}"
+                    app:font="@font/noto_sans_regular"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    >
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_name"
+                        android:maxLength="255"
+                        android:text="@={viewModel.registerRequest.name}"
+                        style="@style/styleTextInput"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Email -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    app:errorTextInput="@{viewModel.emailError}"
+                    app:font="@font/noto_sans_regular"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    >
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_email"
+                        android:maxLength="100"
+                        android:text="@={viewModel.registerRequest.email}"
+                        style="@style/styleTextInput"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    app:errorTextInput="@{viewModel.passwordError}"
+                    app:font="@font/noto_sans_regular"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    >
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_password"
+                        android:inputType="textPassword"
+                        android:maxLength="100"
+                        android:text="@={viewModel.registerRequest.password}"
+                        style="@style/styleTextInput"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Confirm Password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    app:errorTextInput="@{viewModel.confirmPasswordError}"
+                    app:font="@font/noto_sans_regular"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_confirm_password"
+                        android:inputType="textPassword"
+                        android:maxLength="100"
+                        android:text="@={viewModel.registerRequest.confirmPassword}"
+                        style="@style/styleTextInput"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="@dimen/dp_4"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="@dimen/dp_1"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.onRegisterClick()}"
+                        android:paddingBottom="@dimen/dp_16"
+                        android:paddingTop="@dimen/dp_16"
+                        android:text="@string/label_register"
+                        android:textColor="@color/black_222222"
+                        android:textSize="@dimen/sp_14"
+                        app:fontFamily="@font/noto_sans_bold"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

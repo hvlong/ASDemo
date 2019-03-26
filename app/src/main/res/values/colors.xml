@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/yellow_EAED12</color>
+    <color name="colorPrimaryDark">@color/transparent</color>
+    <color name="colorAccent">@color/yellow_EAED12</color>
+    <color name="toolbar">@color/white</color>
+    <color name="colorPrimaryBlackButton">@color/black_525252</color>
+
+
+    <color name="loading_start">#00ee49a3</color>
+    <color name="loading_center">#80ee49a3</color>
+    <color name="loading_end">#FFee49a3</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_FFF6E6">#FFF6E6</color>
+
+    <color name="black_525252">#525252</color>
+    <color name="black_222222">#222222</color>
+    <color name="black_text_bold">#13131E</color>
+    <color name="black_text">#666666</color>
+    <color name="black_212121">#212121</color>
+
+    <color name="yellow_D3D4BE">#D3D4BE</color>
+    <color name="yellow_fbff00">#fbff00</color>
+    <color name="yellow_EAED12">#EAED12</color>
+
+    <color name="orange_dark_text">#C2A710</color>
+    <color name="orange_ED6F12">#ED6F12</color>
+
+    <color name="gray_EAEAEA">#EAEAEA</color>
+    <color name="gray_0c000000">#0c000000</color>
+    <color name="gray_CCCCCC">#CCCCCC</color>
+    <color name="gray_888888">#888888</color>
+
+</resources>
