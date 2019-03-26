@@ -1,11 +1,9 @@
 package com.challenge.aspire.screen.profile
 
-import `in`.gauriinfotech.commons.Commons
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
 import com.challenge.aspire.App
@@ -14,7 +12,6 @@ import com.challenge.aspire.base.BaseActivity
 import com.challenge.aspire.data.model.User
 import com.challenge.aspire.databinding.ActivityProfileBinding
 import com.challenge.aspire.screen.verifyAuth.VerifyAuthActivity
-import com.challenge.aspire.utils.FileUtils
 import com.challenge.aspire.utils.PermissionUtils
 import com.challenge.aspire.utils.PickerUtils
 import com.challenge.aspire.utils.extension.notNull
